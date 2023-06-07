@@ -31,8 +31,23 @@ pipeline {
             }
             steps {
                 sh './mvnw test'
+
             }
         }
+
+         stage('Package') {
+                    agent {
+                        docker {
+                            image 'amazoncorretto:17-alpine-jdk' // Use the desired Node.js version or any other base image
+                            registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
+                            args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
+                        }
+                    }
+                    steps {
+                        sh './mvnw package'
+
+                    }
+                }
 
         stage('Publish') {
             agent {
