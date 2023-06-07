@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tax-calculator-api-dep
+  name: tax-api-dep
   labels:
-    app: tax-calculator-api
+    app: tax-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tax-calculator-api-app
+      app: tax-api-app
   template:
     metadata:
       labels:
-        app: tax-calculator-api-app
+        app: tax-api-app
     spec:
       containers:
-        - name: tax-calculator-api
+        - name: tax-api
           image: REPO_IMAGE
           ports:
-            - name: tax-calculator-api
+            - name: tax-api
               containerPort: 8081
