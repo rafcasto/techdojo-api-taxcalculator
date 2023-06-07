@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'adoptopenjdk/openjdk17:latest' // Use the desired Node.js version or any other base image
+                    image 'openjdk/17-oracle' // Use the desired Node.js version or any other base image
                     registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
                     args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
                 }
@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'adoptopenjdk/openjdk17:latest' // Use the desired Node.js version or any other base image
+                    image 'openjdk/17-oracle' // Use the desired Node.js version or any other base image
                     registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
                     args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
                 }
