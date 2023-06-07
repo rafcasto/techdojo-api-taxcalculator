@@ -30,7 +30,7 @@ pipeline {
                 }
             }
             steps {
-                sh './mvnw test'
+                sh './mvnw clean test'
 
             }
         }
@@ -87,7 +87,6 @@ pipeline {
                 tag = "${env.BUILD_NUMBER}"
             }
             steps{
-            echo 'this is deployment'
                 script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){

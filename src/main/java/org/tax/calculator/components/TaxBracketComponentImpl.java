@@ -31,7 +31,8 @@ public class TaxBracketComponentImpl implements TaxBracketComponent{
         if(taxBracket.getMaxIncomeBracket() < taxBracket.getMinIncomeBracket()){
             return income >= taxBracket.getMinIncomeBracket();
         }
-        return (income >= taxBracket.getMinIncomeBracket() && income <= taxBracket.getMaxIncomeBracket());
+       // return (income >= taxBracket.getMinIncomeBracket() && income <= taxBracket.getMaxIncomeBracket()); Remove this line to fix
+        return (income >= taxBracket.getMaxIncomeBracket() && income <= taxBracket.getMaxIncomeBracket());
     }
 
     private void initTaxBrackets(){
