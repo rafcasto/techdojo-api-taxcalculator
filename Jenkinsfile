@@ -72,6 +72,7 @@ pipeline {
                 tag = "${env.BUILD_NUMBER}"
             }
             steps{
+            echo 'this is deployment'
                 /* script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
