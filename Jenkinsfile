@@ -83,22 +83,22 @@ pipeline {
              environment {
                 registry = 'rafcasto'
                 credentialsId = 'docker-hub-credentials'
-                imageName = 'techdojo-ui-component'
+                imageName = 'techdojo-api-taxcalculator'
                 tag = "${env.BUILD_NUMBER}"
             }
             steps{
             echo 'this is deployment'
-                /* script {
+                script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                  sh 'kubectl delete svc storybook-svc  --kubeconfig=/root/kubconfig.yaml'
-                   sh 'kubectl delete   deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
+                  sh 'kubectl delete svc tax-calculator-api-svc  --kubeconfig=/root/kubconfig.yaml'
+                   sh 'kubectl delete   deployment tax-calculator-api-dep --kubeconfig=/root/kubconfig.yaml'
                      }
                     sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' storybook-deployment.yaml"
-                    sh "kubectl apply -f storybook-deployment.yaml  --kubeconfig=/root/kubconfig.yaml"
-                    sh 'kubectl apply -f storybook-service.yaml  --kubeconfig=/root/kubconfig.yaml'
+                    sh "kubectl apply -f deployment.yaml  --kubeconfig=/root/kubconfig.yaml"
+                    sh 'kubectl apply -f service.yaml  --kubeconfig=/root/kubconfig.yaml'
                 }
-                }*/
+                }
              }
         }
     }
