@@ -72,17 +72,17 @@ pipeline {
                 tag = "${env.BUILD_NUMBER}"
             }
             steps{
-                script {
+                /* script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                  /* sh 'kubectl delete svc storybook-svc  --kubeconfig=/root/kubconfig.yaml'
+                  sh 'kubectl delete svc storybook-svc  --kubeconfig=/root/kubconfig.yaml'
                    sh 'kubectl delete   deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
                      }
                     sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' storybook-deployment.yaml"
                     sh "kubectl apply -f storybook-deployment.yaml  --kubeconfig=/root/kubconfig.yaml"
-                    sh 'kubectl apply -f storybook-service.yaml  --kubeconfig=/root/kubconfig.yaml' */
+                    sh 'kubectl apply -f storybook-service.yaml  --kubeconfig=/root/kubconfig.yaml'
                 }
-                }
+                }*/
              }
         }
     }
