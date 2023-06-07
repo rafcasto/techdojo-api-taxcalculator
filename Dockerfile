@@ -1,5 +1,5 @@
 # Use a base image with Java 17
-FROM openjdk/17-oracle
+FROM amazoncorretto:17-alpine-jdk
 
 # Set the working directory in the container
 WORKDIR /app
