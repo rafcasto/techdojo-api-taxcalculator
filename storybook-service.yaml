@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tax-calculator-api-svc
+  labels:
+    app: tax-calculator-api-app
+spec:
+  selector:
+    app: tax-calculator-api-app
+  ports:
+    - name: tax-calculator-api
+      protocol: TCP
+      port: 8081
+      targetPort: tax-calculator-api
