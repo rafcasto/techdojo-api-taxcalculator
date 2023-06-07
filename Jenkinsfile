@@ -91,10 +91,10 @@ pipeline {
                 script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                  sh 'kubectl delete svc tax-calculator-api-svc  --kubeconfig=/root/kubconfig.yaml'
-                   sh 'kubectl delete   deployment tax-calculator-api-dep --kubeconfig=/root/kubconfig.yaml'
+                  sh 'kubectl delete svc tax-api-svc  --kubeconfig=/root/kubconfig.yaml'
+                   sh 'kubectl delete deployment tax-api-dep --kubeconfig=/root/kubconfig.yaml'
                      }
-                    sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' storybook-deployment.yaml"
+                    sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' deployment.yaml"
                     sh "kubectl apply -f deployment.yaml  --kubeconfig=/root/kubconfig.yaml"
                     sh 'kubectl apply -f service.yaml  --kubeconfig=/root/kubconfig.yaml'
                 }
