@@ -23,12 +23,12 @@ class TaxBracketComponentTest {
         Assertions.assertEquals(expectedRate,taxBracketComponent.findTaxBracketBasedOn(income).getTaxRate());
     }
 
-  /*  @Test
+    @Test
     void findTaxBracketBasedOnSecondBracket() {
         double income = 14001.00;
         double expectedRate = 17.50/100.00;
         Assertions.assertEquals(expectedRate,taxBracketComponent.findTaxBracketBasedOn(income).getTaxRate());
-    }*/
+    }
 
     @Test
     void findMaxTaxBracketBasedOn() {
