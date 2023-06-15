@@ -20,6 +20,7 @@ public class TaxBracketComponentImpl implements TaxBracketComponent{
 
     @Override
     public TaxBracket findTaxBracketBasedOn(double income) {
+
         TaxBracket bracket = this.taxBrackets.stream().
                 filter(taxBracket -> isTaxBracketMatch(taxBracket,income)
                         ).findFirst().orElse(null);

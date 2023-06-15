@@ -3,6 +3,7 @@ package org.tax.calculator.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.tax.calculator.components.TaxBracketComponent;
+import org.tax.calculator.controllers.exceptions.BadRequestException;
 import org.tax.calculator.models.TaxBracket;
 
 import java.util.List;
@@ -22,6 +23,9 @@ public class TaxBracketController
 
     @GetMapping("/taxBrackets/{income}")
     TaxBracket findBracket(@PathVariable double income){
+        if(income < 0){
+            throw new BadRequestException("Income most be positive value");
+        }
         return taxBracketComponent.findTaxBracketBasedOn(income);
     }
 }
