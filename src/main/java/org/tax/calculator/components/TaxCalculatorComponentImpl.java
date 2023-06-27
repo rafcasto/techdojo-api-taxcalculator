@@ -19,8 +19,13 @@ public class TaxCalculatorComponentImpl implements TaxCalculatorComponent{
             throw new BadRequestException("Income needs to be a positive number and greater than 0");
         }
         return new CalculateTaxResponse(){{
-            setOwningTax(request.getIncome()*bracket.getTaxRate());
+            setOwningTax(round(request.getIncome()*bracket.getTaxRate()));
             setTaxRate(bracket.getTaxRate()*100);
         }};
+    }
+
+    private double round(double taxToPay)
+    {
+        return  Math.round(taxToPay * 100.0) / 100.0;
     }
 }
