@@ -39,23 +39,23 @@ public class TaxBracketComponentImpl implements TaxBracketComponent{
     private void initTaxBrackets(){
         this.taxBrackets = new ArrayList<TaxBracket>();
         taxBrackets.add(new TaxBracket(){{
-            setMinIncomeBracket(0.0);
-            setMaxIncomeBracket(14000.00);
+            setMinIncomeBracket(0.00);
+            setMaxIncomeBracket(14000.99);
             setTaxRate(10.5/100.00);
         }});
         taxBrackets.add(new TaxBracket(){{
             setMinIncomeBracket(14001.00);
-            setMaxIncomeBracket(48000.00);
+            setMaxIncomeBracket(48000.99);
             setTaxRate(17.50/100.00);
         }});
         taxBrackets.add(new TaxBracket(){{
             setMinIncomeBracket(48001.00);
-            setMaxIncomeBracket(70000.00);
+            setMaxIncomeBracket(70000.99);
             setTaxRate(30.00/100.00);
         }});
         taxBrackets.add(new TaxBracket(){{
             setMinIncomeBracket(70001.00);
-            setMaxIncomeBracket(180000.00);
+            setMaxIncomeBracket(180000.99);
             setTaxRate(33.00/100.00);
         }});
         taxBrackets.add(new TaxBracket(){{
